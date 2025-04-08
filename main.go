@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	"github.com/scottwinkler/terraform-provider-shell/shell"
+	"github.com/steigr/terraform-provider-shell/shell"
 )
 
 func main() {
