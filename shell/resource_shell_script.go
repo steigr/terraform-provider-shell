@@ -143,15 +143,6 @@ func resourceShellScriptCustomizeDiff(ctx context.Context, d *schema.ResourceDif
 	}
 
 	if d.HasChange("lifecycle_commands") || d.HasChange("interpreter") {
-		for _, k := range []string{
-			"environment", "sensitive_environment", "working_directory"} {
-
-			if d.HasChange(k) {
-				return fmt.Errorf("changes to `lifecycle_commands` and/or `interpreter`" +
-					" should not be follwed by changes to other arguments")
-			}
-		}
-
 		if d.HasChange("lifecycle_commands.0.read") {
 			_ = d.SetNewComputed("output") //  assume output will change
 		}
